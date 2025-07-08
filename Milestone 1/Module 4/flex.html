@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        .user{
+            font-size: 2rem;
+            /* border: 2px solid aqua; */
+            margin: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .user-container{
+            
+            border: 20px solid blueviolet;
+            background-color: greenyellow;
+        }
+
+        .card-container{
+            border: 3px solid red;
+            background-color: aqua;
+            /* gap: 10px; */
+            
+        }
+
+        .vertical{
+            display: flex;
+            background-color: aqua;
+            height: 600px;
+            font-size: 3rem;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }
+        .box{
+            
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+            
+        }
+        .vertical1{
+            background-color: greenyellow;
+            height: 600px;
+
+        }
+
+        .box1{
+            height: 400px;
+            width: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/nav.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="form.html">Form</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="try.html">Try</a></li>
+                <!-- <li><a href=""></a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <div class="user">
+        <div class="user-container">user-1</div>
+        <div class="user-container">user-2</div>
+        <div class="user-container">user-3</div>
+        <div class="user-container">user-4</div>
+        <div class="user-container">user-5</div>
+        <div class="user-container">user-6</div>
+    </div>
+
+    <div class="user">
+        <div class="card-container">card-1</div>
+        <div class="card-container">card-2</div>
+        <div class="card-container">card-3</div>
+        <div class="card-container">card-4</div>
+        <div class="card-container">card-5</div>
+        <div class="card-container">card-6</div>
+        <div class="card-container">card-7</div>
+        <div class="card-container">card-8</div>
+        <div class="card-container">card-9</div>
+        <div class="card-container">card-10</div>
+        <div class="card-container">card-11</div>
+        <div class="card-container">card-12</div>
+        <div class="card-container">card-1</div>
+        <div class="card-container">card-2</div>
+        <div class="card-container">card-3</div>
+        <div class="card-container">card-4</div>
+        <div class="card-container">card-5</div>
+        <div class="card-container">card-6</div>
+        <div class="card-container">card-7</div>
+        <div class="card-container">card-8</div>
+        <div class="card-container">card-9</div>
+        <div class="card-container">card-10</div>
+        <div class="card-container">card-11</div>
+        <div class="card-container">card-12</div>
+    </div>
+
+    <div class="vertical">
+        <div class="box">box-1</div>
+        
+    </div>
+    <div class="vertical1">
+        <div class="box1">box-1</div>
+        
+    </div>
+</body>
+</html>

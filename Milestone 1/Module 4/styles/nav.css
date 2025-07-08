@@ -1,0 +1,17 @@
+nav ul{
+    display: flex;
+}
+
+nav li{
+    list-style: none;
+    margin-right: 10px;
+}
+
+nav li a{
+    text-decoration: none;
+    color: black;
+}
+nav li:hover{
+    text-decoration: lightgray;
+    /* color: black; */
+}
