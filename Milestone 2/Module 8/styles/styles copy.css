@@ -1,0 +1,276 @@
+
+.open-sans-font {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+/* main  */
+
+main{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+main section{
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
+
+/* shared elements  */
+
+.text-primary{
+    color: #FD6E0A;
+}
+
+.dark-2{
+    color: #757575;
+}
+
+.btn-primary{
+    background-color: #FD6E0A;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding: 18px 35px;
+    border-radius: 5px;
+    border: none;
+}
+
+.section-title{
+    font-size: 35px;
+    font-weight: bold;
+    color: #181818;
+}
+
+.section-description{
+    font-size: 18px;
+    color: #757575;
+}
+
+.secondary-background{
+    background-color: #FFF8F3;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* header section  */
+
+.header{
+    background-image: url(../images/developer.png), url(../images/header_bg.png);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 200px;
+}
+
+.nav-title{
+    font-size: 45px;
+    font-weight: 800;
+
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+
+nav ul li{
+    list-style: none;
+    margin-right: 51px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+/* banner styles */
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 35px 0 230px;
+}
+
+.banner-content{
+    max-width: 580px;
+}
+
+.banner-greetings{
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.banner-title{
+    font-weight: bold;
+    font-size: 85;
+}
+
+.banner-description{
+    font-size: 18;
+    font-weight: 400;
+}
+
+.banner-image{
+    width: 580px;
+}
+
+/* about section  */
+
+.about{
+    border-radius: 10px;
+    padding: 130px 150px;
+    text-align: center;
+    
+}
+
+.about-items{
+    display: flex;
+    justify-content: space-around;
+}
+
+.item-description{
+    font-weight: 600;
+
+}
+
+/* what i do  */
+/* skills  */
+
+.skills-container{
+    display: flex;
+    gap: 24px;
+}
+
+.skill{
+    padding: 33px;
+    border-radius: 5px;
+    box-shadow: 0px 6px 50px 0px rgba(0, 0, 0, 0.06);
+}
+
+/* resume section  */
+
+.resume-container{
+    display: flex;
+    gap: 24px;
+}
+
+.experience-description, .experience-sub-title{
+    color: #757575;
+}
+
+.experience-sub-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.resume hr{
+    margin: 30px 5px;
+}
+
+.resume-cv-download{
+    margin-top: 50px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* footer styles  */
+
+footer{
+    padding: 130px 230px;
+    display: flex;
+    gap: 100px;
+
+}
+
+.footer-column{
+    width: 50%;
+}
+
+footer input[type="text"], footer input[type="email"], footer textarea{
+    height: 65px;
+    border-radius: 5px;
+    background-color: white;
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    border: none;
+}
+
+.reviewer-info{
+    display: flex;
+}
+
+
+/* media responsive  */
+
+@media screen and (max-width: 576px){
+    .skills-container, .resume-container, footer, .about-items, .banner, nav, nav > ul{
+        flex-direction: column;
+    }
+    nav > ul{
+        gap: 10px;
+    }
+    .banner{
+        margin: 10px;
+    }
+    .btn-primary{
+        margin-bottom: 5px;
+    }
+    footer, .about{
+        padding: 20px;
+        /* width: 100%; */
+    }
+    .header{
+        background-image: none;
+    }
+    .banner-image{
+        width: 100%;
+    }
+    .footer-column{
+        width: 100%;
+    }
+    footer input[type="text"], footer input[type="email"], footer textarea{
+        width: calc( (100% - 40px));
+    }
+}
+
+/* Tablet Specific media query  */
+
+@media screen and ((min-width: 576px) and (max-width: 990px)) {
+    .banner, .skills-container, .about-items, .resume, header{
+        /* flex-direction: column; */
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header{
+        background-image: None;
+    }
+
+    .banner-image{
+        width: 100%;
+    }
+}
