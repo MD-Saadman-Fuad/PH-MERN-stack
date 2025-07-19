@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Tailwind intro</title>
+
+</head>
+<body>
+    <h1>Intro to Tailwind</h1>
+    <h3>Exploring CSS via Utility Class</h3>
+    <p class="underline">This is very Exciting</p>
+    <p class="text-center">I am exploring Tailwind</p>
+    <section class="w-1/2 border">
+        <h3>My section title</h3>
+        <h3 class="text-3xl border my-4">My section title 2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum et id similique accusantium odit, quibusdam nam illo doloribus excepturi aspernatur porro dicta accusamus inventore. Sequi nam dignissimos eligendi eum dolorum?</p>
+
+    </section>
+    <!-- responsive section  -->
+
+    <section class="pt-2 bg-yellow-300 md:bg-green-500 sm:bg-red-300 ">
+        <h3 class="text-3xl">My responsive Section</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam maiores nostrum amet neque, necessitatibus temporibus consectetur labore? Dolore labore impedit et maxime aspernatur, repellendus possimus tempore, explicabo, ipsa nisi nihil.</p>
+    
+    </section>
+
+    <section class=" pt-5 place-items-center md:flex items-center justify-center gap-6">
+        <div class="w-96 h-32 text-3xl bg-purple-400 border border-4 border-red-900">
+            Items 1
+        </div>
+        <div class="w-96 h-32 text-3xl bg-purple-400 border border-4 border-red-900">
+            Items 2
+        </div>
+        <div class="w-96 h-32 text-3xl bg-purple-400 border border-4 border-red-900">
+            Items 3
+        </div>
+        <div class="w-96 h-32 text-3xl bg-purple-400 border border-4 border-red-900">
+            Items 4
+        </div>
+        <div class="w-96 h-32 text-3xl bg-purple-400 border border-4 border-red-900">
+            Items 5
+        </div>
+    </section>
+<!-- grid section -->
+    <section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg: grid-cols-3 xl:grid-cols-4">
+        <div class="bg-pink-300 text-2xl">Box-1</div>
+        <div class="bg-pink-300 text-2xl col-span-2">Box-2</div>
+        <div class="bg-pink-300 text-2xl xl:row-span-2">Box-3</div>
+        <div class="bg-pink-300 text-2xl">Box-4</div>
+        <div class="bg-pink-300 text-2xl">Box-5</div>
+        <div class="bg-pink-300 text-2xl">Box-6</div>
+        <div class="bg-pink-300 text-2xl col-span-2">Box-7</div>
+        <div class="bg-pink-300 text-2xl">Box-8</div>
+        <div class="bg-pink-300 text-2xl row-span-2">Box-9</div>
+
+    </section>
+
+</body>
+</html>
