@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+    <style>
+        :root{
+            --primary-color: red;
+            --secondary-color: blue;
+            --font-size: 20px;
+        }
+        .h1{
+            color: var(--primary-color);
+        }
+        h5{
+            background-color: var(--secondary-color)
+        }
+        .box{
+            border: 2px solid slateblue;
+            width: calc(100% - 300px);
+        }
+
+        .box p{
+            color: slateblue;
+        } 
+        .container{
+            display: grid;
+            gap: 20px;
+            grid-template-rows: 500px;
+            grid-template-columns: 200px calc(100% - 200px);
+
+        }
+
+        .sidebar{
+            background-color: lightgray;
+        }
+        .content{
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Custom Properties</h1>
+    <h5>Also known as CSS variables</h5>
+    <div class="box">
+        <h3>I am doing something</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat quae commodi sapiente delectus numquam deleniti accusamus voluptatum architecto inventore ratione enim at officiis minima aliquam pariatur cumque consequuntur, eligendi, similique, quasi impedit ducimus distinctio dolorum excepturi vero? Ut fuga, suscipit tempora et commodi rerum! Id sit deserunt nihil minus eaque omnis minima quisquam esse, expedita enim ea assumenda debitis eveniet consequuntur, eius atque vel beatae molestiae amet voluptatibus! Culpa nostrum, architecto iste ratione aliquid nesciunt porro officiis expedita? Vitae cumque, quaerat beatae tenetur consectetur corporis cupiditate vel officiis aliquam ad laudantium animi dicta tempora aut quod in, totam quia dignissimos debitis qui et molestiae. Modi accusantium soluta suscipit, ipsa, id laboriosam eaque iure iste incidunt atque itaque facere cum blanditiis commodi ipsam aliquid impedit voluptatem est praesentium aut natus repellat? Sed ipsa cupiditate, quo aliquid fugiat quibusdam quidem assumenda odio accusantium quia architecto aperiam veritatis officiis tenetur consequuntur debitis dolore, doloremque inventore dolor neque optio minus culpa aspernatur! Quia recusandae fugit necessitatibus rerum consequuntur voluptates, placeat asperiores error, sit voluptate dicta nihil veritatis earum mollitia aliquam optio adipisci officiis dolores fugiat repellendus! Explicabo nihil dolorum, fugiat totam harum qui cum consectetur dolor sequi recusandae impedit rem maxime itaque illum autem.000000</p>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            Sidebar
+        </div>
+        <div class="content">
+            content
+        </div>
+    </div>
+
+</body>
+</html>
