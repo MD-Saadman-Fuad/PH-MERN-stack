@@ -15,6 +15,11 @@
       .food .fastfood{
         font-size: 24px;
       }
+      .p{
+        color: yellowgreen;
+        font-size: 100px;
+      }
+      
     </style>
   </head>
   <body>
@@ -29,20 +34,36 @@
           <li>2</li>
           <li>3</li>
         </ul>
+        <h1><span>check3</span></h1>
+        <p>Lorem ipsum <span>Check 1</span> sit, amet consectetur adipisicing elit. Odit, quis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <span>Check 2</span> cum aperiam sint ut unde enim iure quos optio dolore accusantium.</p>
       </section>
       <section class="food">
         <h1 id="FoodTitle">Foods That I Love</h1>
         <ul>
           <li>Biriyani</li>
           <li>Burger</li>
-          <li>Pizza</li>
+          <li id="check">Pizza</li>
           <li class="fastfood">Pasta</li>
           <li class="fastfood">Cake</li>
           <li class="fastfood">Kacchi</li>
           <li class="fastfood">Coke</li>
         </ul>
       </section>
+
+      <section id="player-box">
+        <h1>players</h1>
+        <ul id="player-list">
+            <li>Messi</li>
+            <li>Ronaldo</li>
+            <li>Neymanr</li>
+            <li>Mbappe</li>
+        </ul>
+      </section>
     </main>
+
+
+
     <script>
       // console.log("Hello");
       console.log("Document Object Model");
@@ -76,7 +97,24 @@
       for(const elements of fastFood){
         console.log(elements.innerText)
       }
+
+      const cheeck = document.querySelectorAll('.sl  span');
+      for(const check of cheeck){
+        console.log(check.innerText);
+      };
+
+      const check_styles = document.getElementById ('check');
+
+      check_styles.style.color='black';
+      check_styles.classList.add('p')
+      console.log(check_styles)
+    //   check_styles.classList.add('p')
     </script>
+
+
+
     <script src="js/hello.js"></script>
+    <script src="js/cssfromJS.js"></script>
+    <script src="js/child.js"></script>
   </body>
 </html>
