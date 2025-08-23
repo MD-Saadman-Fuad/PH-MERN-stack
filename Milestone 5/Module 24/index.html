@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <style>
+      h1 {
+        color: yellow;
+      }
+      #FoodTitle{
+        color: green;
+      }
+      .food .fastfood{
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>This is the Dome</h1>
+    </header>
+    <main>
+      <section class="sl">
+        <h1>Welcome to Dome</h1>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </section>
+      <section class="food">
+        <h1 id="FoodTitle">Foods That I Love</h1>
+        <ul>
+          <li>Biriyani</li>
+          <li>Burger</li>
+          <li>Pizza</li>
+          <li class="fastfood">Pasta</li>
+          <li class="fastfood">Cake</li>
+          <li class="fastfood">Kacchi</li>
+          <li class="fastfood">Coke</li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      // console.log("Hello");
+      console.log("Document Object Model");
+
+      const student = {
+        name: "aboul",
+        id: 121,
+        study: function (subject) {
+          console.log("Studying Subject:", subject);
+        },
+      };
+      const li = document.getElementsByTagName("li");
+      console.log(li);
+      for (const l of li) {
+        console.log(l);
+      }
+
+      const allHeadding = document.getElementsByTagName("h1");
+      for (const all of allHeadding) {
+        console.log(all.innerText);
+      }
+
+      const FoodTitle = document.getElementById('FoodTitle');
+      console.log(FoodTitle.innerText)
+      FoodTitle.innerText = 'Foods That make me happy';
+
+      const fastFood = document.getElementsByClassName('fastfood');
+      console.log(fastFood)
+
+
+      for(const elements of fastFood){
+        console.log(elements.innerText)
+      }
+    </script>
+    <script src="js/hello.js"></script>
+  </body>
+</html>
