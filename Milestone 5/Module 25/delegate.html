@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegate</title>
+</head>
+<body>
+    <h1>Explore Delegation</h1>
+
+    <section>
+        <h3>List of Things</h3>
+        <ol id="item-list">
+            <li class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, minima.</li>
+            <li class="items">Eveniet quibusdam, voluptatibus iste nam officia mollitia magni esse distinctio.</li>
+            <li class="items">Ut nam libero perspiciatis accusantium neque porro aut quos? Illo?</li>
+            <li class="items">Ratione, optio! Earum at in aperiam maxime veniam ut molestias.</li>
+            <li class="items">Incidunt quisquam voluptate quasi officia adipisci eos nostrum cum earum.</li>
+            <li class="items">Rerum eum iure reprehenderit suscipit laborum optio neque ipsum exercitationem.</li>
+        </ol>
+
+        <button id="btn-add-item">add new Item</button>
+    </section>
+
+
+    <script>
+        // const items = document.getElementsByClassName('items');
+        // console.log(items);
+        // for (const item of items){
+        //     // console.log(item);
+        //     item.addEventListener('click', function(){
+        //         // console.log(event.target)
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        document.getElementById('item-list')
+        .addEventListener('click', function(event){
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        document.getElementById('btn-add-item')
+        .addEventListener('click', function(){
+            // console.log('btn clicked')
+
+            const ol = document.getElementById('item-list')
+
+            const li = document.createElement('li');
+            li.classList.add('items')
+            li.innerText = 'New Child Added';
+
+            ol.appendChild(li)
+        })
+    </script>
+</body>
+</html>
