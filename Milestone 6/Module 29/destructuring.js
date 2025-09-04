@@ -14,3 +14,6 @@ console.log(`Product Name: ${name}, Price: $${price}`);
 const numbers = [10, 20, 30, 40, 50];
 const [first, second, ...rest] = numbers;
 console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
+
+const {camera: cam, battery: batt} = product.features;
+console.log(`Camera: ${cam}, Battery: ${batt}`);

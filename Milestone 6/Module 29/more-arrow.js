@@ -8,3 +8,6 @@ console.log(getHalf(10));
 
 const logIt = log => console.log(log);
 logIt('hello');
+
+// annonymous function
+
