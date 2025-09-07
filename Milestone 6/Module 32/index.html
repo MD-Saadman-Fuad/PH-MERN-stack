@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON API</title>
+    <style>
+        #post-container{
+            max-width: 1160px;
+            margin: 10px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 10px;
+            grid-gap: 10px;
+        }
+        .post-card{
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            height: 100%;
+        }
+        .post-card p{
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="loadData()">Load  Data</button>
+    <button onclick="loadPost()">Load  Post</button>
+
+    <!-- <ul id="post-container">
+
+    </ul> -->
+
+    <div id="post-container">
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

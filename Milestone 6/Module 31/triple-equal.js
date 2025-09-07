@@ -13,6 +13,6 @@ console.log(NaN == NaN); // false
 console.log(NaN === NaN); // false
 console.log([] == '');
 console.log([] == 0);
-console.log([] === 0);
+// console.log([] === 0);
 console.log([1,2] == '1,2');
-console.log([1,2] === '1,2');
+// console.log([1,2] === '1,2');
