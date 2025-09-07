@@ -35,3 +35,5 @@ const displayPost = (posts) =>{
         postContainer.appendChild(postCard);
     });
 }
+
+loadPost();
