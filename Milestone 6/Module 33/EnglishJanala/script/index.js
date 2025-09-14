@@ -162,12 +162,12 @@ document.getElementById('btn-search').addEventListener('click', () => {
     .then(data => {
         const allWords = data.data;
         // console.log(allWords);
-        const matchedWord = allWords.find(word => word.word.toLowerCase() === searchValue);
+        const matchedWord = allWords.filter(word => word.word.toLowerCase().includes(searchValue));
         // console.log(matchedWord);
 
         // console.log(matchedWord.word);
 
-        displayLevelWord([matchedWord]);
+        displayLevelWord(matchedWord);
     });
 
 
