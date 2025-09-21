@@ -1,14 +1,36 @@
 import { useState } from 'react'
-
+import Todo from './todo'
+import Actor from './actor'
+import Singer from './Singers'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const actors = [ 'Bappa Raj', 'Omar Sunny', 'Shakib Khan', 'Riaz', 'Jashim', 'Alomgir'];
+  const singers = [
+    { id: 1, name: 'Lata Mangeshkar', age: 92 },
+    { id: 2, name: 'Kishore Kumar', age: 58 },
+    { id: 3, name: 'Asha Bhosle', age: 88 },
+    { id: 4, name: 'Mohammed Rafi', age: 55 },
+    { id: 5, name: 'Sonu Nigam', age: 49 }
+  ];
   return (
     <>
         
       <h1>Checking</h1>
+    {
+      actors.map(actor => <Actor actor={actor}></Actor>)
+    }
+    {
+      singers.map(singer => <Singer key={singer.id} singer={singer}></Singer>)
+    }
+
+
+
+
+
+      {/* <Todo name= "Homework" isDone={true}/>
+      <Todo name= "Homework" isDone={false}/>
+      <Todo name= "Homework" isDone={true}/>
       <Person />
       <Sports name="Football" />
       <Sports name="Cricket" />
@@ -17,7 +39,7 @@ function App() {
       <Player name="Bob" age={30} />
       <Player name="Charlie" age={28} />
       <Player name="David" age={35} />
-      <Player name="Mahmudul" />
+      <Player name="Mahmudul" /> */}
     </>
   )
 }
