@@ -3,7 +3,7 @@
 import Bottle from '../Bottle/Bottle';
 import './Bottles.css'
 import Cart from '../Cart/Cart';
-import { addToStoreCart, getStoreCart } from '../../utils/localstorage/localstorage';
+import { addToStoreCart, getStoreCart, removeFromStoreCart } from '../../utils/localstorage/localstorage';
  const Bottles = ({bottlesPromise}) => {
     const [cart, setCart] = useState([]);
     const bottles = use(bottlesPromise);
@@ -39,6 +39,7 @@ import { addToStoreCart, getStoreCart } from '../../utils/localstorage/localstor
         const remaining = cart.filter(b => b.id !== bottle.id);
         setCart(remaining);
         console.log('Bottle removed from cart:', bottle);
+        removeFromStoreCart(bottle.id);
     }
 
     return (
