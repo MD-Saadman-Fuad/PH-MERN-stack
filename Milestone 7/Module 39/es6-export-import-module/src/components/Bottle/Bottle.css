@@ -1,0 +1,23 @@
+.card{
+    border: 2px solid teal;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    background-color: #16b9e2;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.bottle img{
+    width: 250px;
+    margin: 0 auto 16px auto;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    position: relative;
+    background-color: #09cce6;
+}
