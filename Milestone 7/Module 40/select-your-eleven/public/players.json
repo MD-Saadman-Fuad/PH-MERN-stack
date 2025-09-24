@@ -1,0 +1,122 @@
+[
+  {
+    "player-image": "https://i.ibb.co.com/VWYsTj2D/sakib-al-hasan.webp",
+    "player-name": "Shakib Al Hasan",
+    "player-country": "Bangladesh",
+    "player-role": "All-Rounder",
+    "player-rating": 95,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Slow Left-arm Orthodox",
+    "player-price": 120000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/7tNhZ8zd/tamim.jpg",
+    "player-name": "Tamim Iqbal",
+    "player-country": "Bangladesh",
+    "player-role": "Batsman",
+    "player-rating": 88,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 90000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/Y4M07CT1/mushfiqur.jpg",
+    "player-name": "Mushfiqur Rahim",
+    "player-country": "Bangladesh",
+    "player-role": "Wicketkeeper-Batsman",
+    "player-rating": 90,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "N/A",
+    "player-price": 95000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/n8KGgnDn/muistafizur.jpg",
+    "player-name": "Mustafizur Rahman",
+    "player-country": "Bangladesh",
+    "player-role": "Bowler",
+    "player-rating": 92,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Left-arm Fast-Medium",
+    "player-price": 110000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/RpRhzKpk/mahmudullah.jpg",
+    "player-name": "Mahmudullah Riyad",
+    "player-country": "Bangladesh",
+    "player-role": "All-Rounder",
+    "player-rating": 87,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 85000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/KjFqstgG/rashid.jpg",
+    "player-name": "Rashid Khan",
+    "player-country": "Afghanistan",
+    "player-role": "Bowler",
+    "player-rating": 97,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "Legbreak Googly",
+    "player-price": 140000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/KcqdYw03/gayle.jpg",
+    "player-name": "Chris Gayle",
+    "player-country": "West Indies",
+    "player-role": "Batsman",
+    "player-rating": 93,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 150000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/gL4sHmtN/russle.jpg",
+    "player-name": "Andre Russell",
+    "player-country": "West Indies",
+    "player-role": "All-Rounder",
+    "player-rating": 96,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "Right-arm Fast",
+    "player-price": 160000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/vCVFZV3j/daviidmiller.jpg",
+    "player-name": "David Miller",
+    "player-country": "South Africa",
+    "player-role": "Batsman",
+    "player-rating": 89,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 100000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/5h6CBD5j/mehedi-hasan.jpg",
+    "player-name": "Mahedi Hasan",
+    "player-country": "Bangladesh",
+    "player-role": "All-Rounder",
+    "player-rating": 84,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 70000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/tt3R0kF/afif.jpg",
+    "player-name": "Afif Hossain",
+    "player-country": "Bangladesh",
+    "player-role": "All-Rounder",
+    "player-rating": 85,
+    "player-batting-style": "Left-hand Bat",
+    "player-bowing-style": "Right-arm Offbreak",
+    "player-price": 75000
+  },
+  {
+    "player-image": "https://i.ibb.co.com/273Zwhp9/hasaranga.jpg",
+    "player-name": "Wanindu Hasaranga",
+    "player-country": "Sri Lanka",
+    "player-role": "All-Rounder",
+    "player-rating": 94,
+    "player-batting-style": "Right-hand Bat",
+    "player-bowing-style": "Legbreak Googly",
+    "player-price": 135000
+  }
+]

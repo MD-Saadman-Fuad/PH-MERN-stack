@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Override DaisyUI default background */
+body {
+  background-color: white;
+}
