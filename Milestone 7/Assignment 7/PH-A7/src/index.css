@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+/* Override DaisyUI default background */
+body {
+  background-color: rgb(230, 224, 224);
+}
