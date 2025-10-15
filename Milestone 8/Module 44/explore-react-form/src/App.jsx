@@ -6,6 +6,7 @@ import SimpleForm from './components/SimpleForm/SimpleForm.jsx'
 import UnControlledField from './components/UnControlledField/UnControlledField.jsx'
 import HookForm from './components/HookForm/HookForm.jsx'
 import ProductManagement from './components/ProductManagement/ProductManagement.jsx'
+import FamilyTree from './components/FamilyTree/FamilyTree.jsx'
 function App() {
 
 
@@ -18,7 +19,8 @@ function App() {
       {/* <ControlledField></ControlledField> */}
       {/* <UnControlledField></UnControlledField> */}
       {/* <HookForm></HookForm> */}
-      <ProductManagement></ProductManagement>
+      {/* <ProductManagement></ProductManagement> */}
+      <FamilyTree></FamilyTree>
 
     </>
   )

@@ -1,0 +1,15 @@
+.family-tree div{
+    
+    margin: 10px;
+    padding: 10px;
+    border: 10px;
+}
+
+.family-tree div{
+    border: 2px solid tan;
+    margin: 10px;
+    padding: 10px;
+    border: 10px;
+    /* background-color: lightblue; */
+    text-align: center;
+}
