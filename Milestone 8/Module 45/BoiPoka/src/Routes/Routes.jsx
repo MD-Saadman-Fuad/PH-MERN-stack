@@ -15,7 +15,16 @@ export const router = createBrowserRouter([
     children: [
     {
       index: true,
-      loader : () => fetch('booksData.json'),
+      loader : async () => {
+        try {
+          const res = await fetch('booksData.json');
+          if (!res.ok) throw new Error('Failed to fetch books');
+          return res.json();
+        } catch (error) {
+          console.error(error);
+          return []; // Return empty array to avoid error page
+        }
+      },
       Component: Home,
     },
         {
@@ -24,12 +33,30 @@ export const router = createBrowserRouter([
         },
         {
           path: '/readList',
-          loader : () => fetch('booksData.json'),
+          loader : async () => {
+            try {
+              const res = await fetch('booksData.json');
+              if (!res.ok) throw new Error('Failed to fetch books');
+              return res.json();
+            } catch (error) {
+              console.error(error);
+              return [];
+            }
+          },
           Component: ReadList
         },
         {
           path: '/bookDetails/:id',
-          loader : () => fetch('./booksData.json'),
+          loader : async () => {
+            try {
+              const res = await fetch('booksData.json');
+              if (!res.ok) throw new Error('Failed to fetch books');
+              return res.json();
+            } catch (error) {
+              console.error(error);
+              return [];
+            }
+          },
           Component: BookDetails
         }
     ]
