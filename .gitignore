@@ -1,2 +1,8 @@
 Milestone 9/Module 47/simple-firebase-auth/src/Firebase/firebase.config.js
 Milestone 9/Module 48/email-password-auth/src/Firebase/Firebase.config.js
+
+# Environment files
+.env
+.env.local
+**/.env
+**/.env.local
