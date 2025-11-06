@@ -33,11 +33,58 @@ async function run() {
         //database setup
         const db = client.db('smartDealsDB');
         const productsCollection = db.collection('products');
+        const bidsCollection = db.collection('bids');
+        const usersCollection = db.collection('users');
+
+        //Users related APIs
+
+        //get all users
+        app.get('/users', async (req, res) => {
+            const cursor = usersCollection.find();
+            const result = await cursor.toArray();
+            res.send(result);
+        });
+        //get single user
+        app.get('/users/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await usersCollection.findOne(query);
+            res.send(result);
+        });
+
+
+        //post user
+        app.post('/users', async (req, res) => {
+            const newUser = req.body;
+            const email = req.body.email;
+            //check if user already exists
+            const query = { email: email };
+            const existingUser = await usersCollection.findOne(query);
+
+            if (existingUser) {
+                return res.status(409).send({ message: 'User already exists' });
+            } else {
+                const result = await usersCollection.insertOne(newUser);
+                res.send(result);
+            }
+
+
+        });
+
 
         //GET API to read all products
         app.get('/products', async (req, res) => {
-            // const cursor = productsCollection.find();
-            const cursor = productsCollection.find().sort({ price_min: -1 }).skip(2).limit(5).project({ title: 1, price_min: 1 });
+
+            console.log(req.query);
+            // Using query parameters to filter products by email
+            const email = req.query.email;
+            const query = {};
+            if (email) {
+                query.email = email;
+            }
+
+            const cursor = productsCollection.find(query);
+            // const cursor = productsCollection.find().sort({ price_min: -1 }).skip(2).limit(5).project({ title: 1, price_min: 1 });
             const result = await cursor.toArray();
             res.send(result);
         });
@@ -82,7 +129,44 @@ async function run() {
             res.send(result);
         });
 
+        //Bids related APIs
 
+        //GET API to read all bids
+        app.get('/bids', async (req, res) => {
+
+            const email = req.query.email;
+            const query = {};
+            if (email) {
+                query.buyer_email = email;
+            }
+
+            const cursor = bidsCollection.find(query);
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
+        //Get API to read single bid
+        app.get('/bids/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await bidsCollection.findOne(query);
+            res.send(result);
+        });
+
+        //POST API to add bid
+        app.post('/bids', async (req, res) => {
+            const newBids = req.body;
+            const result = await bidsCollection.insertOne(newBids);
+            res.send(result);
+        });
+
+        //Delete API to delete bid
+        app.delete('/bids/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const result = await bidsCollection.deleteOne(query);
+            res.send(result);
+        });
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
