@@ -1,8 +1,30 @@
+# project-specific explicit firebase config files (contain secrets) to keep out of git
 Milestone 9/Module 47/simple-firebase-auth/src/Firebase/firebase.config.js
 Milestone 9/Module 48/email-password-auth/src/Firebase/Firebase.config.js
 
 # Environment files
-.env
-.env.local
+# Ignore all environment files (anything starting with .env) at any depth
+# This will match: .env, .env.local, .env.development, .env.production, etc.
 **/.env
-**/.env.local
+**/.env.*
+# Keep example files if you intentionally include them in the repo
+!**/.env.example
+
+# Common ignores (optional - useful when multiple projects are in the repo root)
+# node modules and build/output folders
+node_modules/
+**/node_modules/
+dist/
+build/
+**/dist/
+**/build/
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
