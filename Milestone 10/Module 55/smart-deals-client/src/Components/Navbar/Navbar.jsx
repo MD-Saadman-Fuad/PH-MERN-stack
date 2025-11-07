@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import { use } from 'react';
+// import 'index.css';
 
 const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
@@ -9,7 +10,7 @@ const Navbar = () => {
         signOutUser()
             .then(() => {
 
-             })
+            })
             .catch(error => console.error(error));
     }
     const links = <>
@@ -47,10 +48,10 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <a onClick={handleSignOut} className="btn">Sign Out</a> :
-                        <div>
-                            <a className="btn">Login</a>
-                            <Link to="/register" className='btn'>Register</Link>
+                        <a onClick={handleSignOut} className="btn btn-primary">Sign Out</a> :
+                        <div className='flex gap-2'>
+                            <Link to="/login" className="btn">Login</Link>
+                            <Link to="/register" className='btn btn-primary'>Register</Link>
                         </div>
                 }
             </div>

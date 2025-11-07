@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv').config();
 const app = express();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 3000;
@@ -7,7 +8,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-const uri = "mongodb+srv://smartDBuser:vW3qBcB1xL9KoLbj@cluster0.qrspure.mongodb.net/?appName=Cluster0";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qrspure.mongodb.net/?appName=Cluster0`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
     serverApi: {
@@ -97,6 +98,13 @@ async function run() {
             res.send(result);
         });
 
+        //GET latest products (6)
+        app.get('/latest-products', async (req, res) => {
+            const cursor = productsCollection.find().sort({ createdAt: -1 }).limit(6);
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
 
         //POST API to add product
         app.post('/products', async (req, res) => {
@@ -152,6 +160,24 @@ async function run() {
             const result = await bidsCollection.findOne(query);
             res.send(result);
         });
+        //Get API to read bids for a specific product
+        app.get('/bids/byProduct/:productId', async (req, res) => {
+            const productId = req.params.productId;
+            const query = { product: productId };
+            const cursor = bidsCollection.find(query).sort({ bid_price: -1 });
+            const result = await cursor.toArray();
+            res.send(result);
+        });
+        
+
+        //GET bids posted by my email
+        // app.get('bids/myBids/:email', async (req, res) => {
+        //     const email = req.params.email;
+        //     const query = { buyer_email: email };
+        //     const cursor = bidsCollection.find(query).sort({ createdAt: 1 });
+        //     const result = await cursor.toArray();
+        //     res.send(result);
+        // });
 
         //POST API to add bid
         app.post('/bids', async (req, res) => {
