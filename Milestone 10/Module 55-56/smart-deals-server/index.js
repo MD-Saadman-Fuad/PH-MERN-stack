@@ -1,15 +1,61 @@
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv').config();
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
 const app = express();
+const admin = require("firebase-admin");
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const port = process.env.PORT || 3000;
+
+
+
+
+const serviceAccount = require("./smart-deals-firebase-admin-key.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+
 
 app.use(express.json());
 app.use(cors());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qrspure.mongodb.net/?appName=Cluster0`;
+// const logger = (req, res, next) => {
+//     console.log('Request Info:');
+//     next();
+// }
+
+const verifyFirebaseToken = async (req, res, next) => {
+
+    const auth = req.headers.authorization;
+    // console.log('Authorization Header:', auth);
+    if (!auth) {
+        return res.status(401).send({ message: 'Unauthorized access' });
+    }
+
+    const token = auth.split(' ')[1];
+    // console.log('Extracted Token:', token);
+    if (!token) {
+        return res.status(401).send({ message: 'Unauthorized access' });
+    }
+    //verify token using firebase admin sdk
+
+    try {
+        const userInfo = await admin.auth().verifyIdToken(token);
+        // console.log('Decoded Token Info:', userInfo);
+        req.token_email = userInfo.email;
+        next();
+    } catch {
+        return res.status(401).send({ message: 'Unauthorized access' });
+    }
+
+
+}
+
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qrspure.mongodb.net/?appName=Cluster0`;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qrspure.mongodb.net/?appName=Cluster0`;
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -36,6 +82,14 @@ async function run() {
         const productsCollection = db.collection('products');
         const bidsCollection = db.collection('bids');
         const usersCollection = db.collection('users');
+
+        //jwt related apis
+
+        app.post('/getToken', (req, res)=>{
+            const loggedUserEmail = req.body.email;
+            const token = jwt.sign({email: loggedUserEmail}, process.env.JWT_SECRET, {expiresIn: '1h'});
+            res.send({token});
+        })
 
         //Users related APIs
 
@@ -102,6 +156,7 @@ async function run() {
         app.get('/latest-products', async (req, res) => {
             const cursor = productsCollection.find().sort({ createdAt: -1 }).limit(6);
             const result = await cursor.toArray();
+            // console.log(result);
             res.send(result);
         })
 
@@ -114,7 +169,7 @@ async function run() {
         });
 
         //Patch API to update product
-        app.patch('/products/:id', async (req, res) => {
+        app.patch('/products/:id', verifyFirebaseToken, async (req, res) => {
             const id = req.params.id;
             const updatedProduct = req.body;
             const query = { _id: new ObjectId(id) };
@@ -140,11 +195,14 @@ async function run() {
         //Bids related APIs
 
         //GET API to read all bids
-        app.get('/bids', async (req, res) => {
-
+        app.get('/bids', verifyFirebaseToken, async (req, res) => {
+            // console.log('header', req.headers);
             const email = req.query.email;
             const query = {};
             if (email) {
+                if (email !== req.token_email) {
+                    return res.status(403).send({ message: 'Forbidden access' });
+                }
                 query.buyer_email = email;
             }
 
@@ -168,7 +226,7 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result);
         });
-        
+
 
         //GET bids posted by my email
         // app.get('bids/myBids/:email', async (req, res) => {

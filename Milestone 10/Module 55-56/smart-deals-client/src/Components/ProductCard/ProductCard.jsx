@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({ product }) => {
     const { title, price_min, price_max, image } = product;
     return (
-        <div className="card bg-base-10 shadow-sm">
+        <div className="card bg-base-10 shadow-sm ">
             <figure className="px-4 pt-4">
                 <img
                     src={image}
                     alt={title}
-                    className="rounded-xl" />
+                    className="rounded-xl w-full h-80 object-cover" />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
