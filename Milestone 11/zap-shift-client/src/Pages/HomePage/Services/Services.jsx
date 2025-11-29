@@ -29,12 +29,12 @@ const data = [
 
 const Services = () => {
     return (
-        <div className='bg-accent text-center my-4 text-secondary rounded-2xl'>
-            <div className='p-8'>
-                <h1 className='text-3xl text-white font-bold'>Our Serices</h1>
-                <p className='text-sm text-white max-w-xl mx-auto'>Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time.</p>
+        <div className='bg-accent text-center my-4 text-secondary rounded-2xl '>
+            <div className='p-6'>
+                <h1 className='text-3xl text-white font-bold'>Our Services</h1>
+                <p className='text-sm text-white max-w-xl mx-auto mt-2'>Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time.</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 m-4'>
+            <div className='grid grid-cols-1 md:grid-cols-3 m-4 pb-8'>
                 {
                     data.map(service => (
                         <div className='text-secondary p-8 bg-white items-center rounded-3xl m-4'>

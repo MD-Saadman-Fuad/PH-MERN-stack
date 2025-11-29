@@ -5,16 +5,21 @@ import Services from '../Services/Services';
 import Helped from '../Helped/Helped';
 import Benefits from '../Benefits/Benefits';
 import Satisfaction from '../Satisfaction/Satisfaction';
+import Reviews from '../Reviews/Reviews';
+import Faq from '../FAQ/Faq';
+const reviewsPromise = fetch('/reviews.json').then(res => res.json());
 
 const Home = () => {
     return (
         <div>
-           <Banner />
-           <WorkCards />
-           <Services />
-           <Helped  />
-           <Benefits />
-           <Satisfaction />
+            <Banner />
+            <WorkCards />
+            <Services />
+            <Helped />
+            <Benefits />
+            <Satisfaction />
+            <Reviews reviewsPromise={reviewsPromise} />
+            <Faq />
         </div>
     );
 };

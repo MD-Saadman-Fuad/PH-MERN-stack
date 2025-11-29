@@ -13,9 +13,9 @@ const WorkCards = () => {
             <h1 className='text-2xl font-bold'>How It Works</h1>
             <div className='mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
                 {
-                    works.map(work => (
+                    works.map((work) => (
 
-                        <div className='bg-white p-6 gap-2 rounded-3xl '>
+                        <div key={work.id} className='bg-white p-6 gap-2 rounded-3xl '>
                             <img src={image} alt="" />
                             <h3 className='font-bold'>{work.title}</h3>
                             <h4 className='text-sm'>{work.description}</h4>
