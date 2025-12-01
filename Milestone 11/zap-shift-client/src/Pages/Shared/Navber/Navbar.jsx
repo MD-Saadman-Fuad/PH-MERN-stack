@@ -32,7 +32,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl"><Logo /></a>
+                <button className="btn btn-ghost text-xl"><Logo /></button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -46,10 +46,10 @@ const Navbar = () => {
                             <NavLink to="/login" className="btn btn-neutral bg-primary  text-black">Login</NavLink>
                             {/* <NavLink to="/register" className="btn btn-neutral bg-white mr-2 text-black">Register</NavLink> */}
                         </div>
-                        
+
 
                 }
-                <NavLink to="/" className="btn btn-neutral bg-white ml-2 text-black">Be a Rider</NavLink>
+                <NavLink to="/rider" className="btn btn-neutral bg-white ml-2 text-black">Be a Rider</NavLink>
             </div>
         </div>
     );
