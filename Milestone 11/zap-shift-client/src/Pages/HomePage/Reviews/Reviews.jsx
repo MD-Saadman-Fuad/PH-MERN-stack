@@ -20,8 +20,8 @@ const Reviews = ({ reviewsPromise }) => {
     return (
         <div className='my-24 border-b border-t border-dotted pb-20 pt-10'>
             <div className='text-center mb-24'>
-                <h3 className="text-3xl text-center font-bold my-8">Review</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non soluta, perspiciatis esse eius praesentium similique asperiores quasi veniam repellat architecto repellendus, deserunt accusantium, debitis ipsa. Expedita possimus facilis voluptas deserunt.</p>
+                <h3 className="text-3xl text-center font-bold my-8">What Our Customers Say</h3>
+                <p className='max-w-2/3 mx-auto'>Trusted by businesses and individuals alike, our customers consistently highlight fast, reliable deliveries, clear tracking, and helpful support. Below you'll find real feedback from clients who improved delivery times, simplified returns, and scaled their operations using Zap Shift.</p>
             </div>
 
             <Swiper
