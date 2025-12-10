@@ -1,17 +1,19 @@
 import React from 'react';
 import { useForm, useWatch } from 'react-hook-form';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import axios from 'axios';
+// import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 
 const SendParcel = () => {
-    const { register, handleSubmit, control, 
+    const { register, handleSubmit, control,
         // formState: { errors } 
     } = useForm();
 
-    const {user} = useAuth();
+    const navigate = useNavigate();
+
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const serviceCenters = useLoaderData();
     const regionsDuplicate = serviceCenters.map(center => center.region);
@@ -47,6 +49,7 @@ const SendParcel = () => {
         }
 
         // console.log(`Total cost for the parcel is: ${cost} BDT`);
+        data.cost = cost
         Swal.fire({
             title: "Do you want to confirm sending the parcel?",
             text: `You will be charged ${cost} BDT`,
@@ -58,16 +61,26 @@ const SendParcel = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.post('/parcels', data )
+                axiosSecure.post('/parcels', data)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
+                        if (res.data.insertedId) {
+                            navigate('/dashboard/my-parcels');
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Parcel Created, Please proceed to payment",
+                                showConfirmButton: false,
+                                timer: 2500
+                            });
+                        }
                     })
 
-                // Swal.fire({
-                //     title: "Confirmed!",
-                //     text: "Your parcel has been confirmed.",
-                //     icon: "success"
-                // });
+                Swal.fire({
+                    title: "Confirmed!",
+                    text: "Your parcel has been confirmed.",
+                    icon: "success"
+                });
             }
         });
     }
