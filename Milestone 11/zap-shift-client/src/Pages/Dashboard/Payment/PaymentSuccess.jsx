@@ -11,15 +11,16 @@ const PaymentSuccess = () => {
     useEffect(() => {
         if (sessionId) {
             axiosSecure.patch(`payment-success?session_id=${sessionId}`)
-            .then(res=>{
-                console.log('Payment success updated:', res.data);
-                setPaymentInfo({
-                    transactionId: res.data.transactionId,
-                    trackingId: res.data.trackingId,
+                .then(res => {
+                    console.log('Payment success updated:', res.data);
+                    setPaymentInfo({
+                        transactionId: res.data.transactionId,
+                        trackingId: res.data.trackingId,
+                    })
                 })
-            })
         }
-    }, [sessionId, axiosSecure]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sessionId]);
     return (
         <div>
             <h2 className='text-4xl'>Payment Successful</h2>

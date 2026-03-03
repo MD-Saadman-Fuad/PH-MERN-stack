@@ -8,7 +8,7 @@ const Error = () => {
                 <img src={error} alt="Error" />
             </div>
             <div>
-                <p className='text-xl'>This is ic Curently not available.</p>
+                <p className='text-xl'>This page is Curently not available.</p>
                 <p className='text-xl'>Please Go back to Home Page</p>
             </div>
             <Link to="/"><button className="btn bg-primary text-white ">Go Home</button></Link>

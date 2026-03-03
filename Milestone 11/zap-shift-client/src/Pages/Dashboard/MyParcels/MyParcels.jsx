@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FiEdit } from 'react-icons/fi';
 import { FaMagnifyingGlass, FaRegTrashCan } from 'react-icons/fa6';
@@ -66,7 +66,9 @@ const MyParcels = () => {
                             <th>Name</th>
                             <th>Cost</th>
                             <th>Payment Status</th>
+                            <th>Tracking ID</th>
                             <th>Delivary Status</th>
+
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -77,11 +79,14 @@ const MyParcels = () => {
                                 <th>{index + 1}</th>
                                 <td>{parcel.parcelName}</td>
                                 <td>{parcel.cost}</td>
-                                
+
                                 <td>{
-                                    parcel.paymentStatus === "Paid" ? <span className='text-green-500'>Paid</span> 
-                                    : <Link to={`/dashboard/payment/${parcel._id}`} className="btn btn-sm btn-primary text-black">Pay</Link>
+                                    parcel.paymentStatus === "Paid" ? <span className='text-green-500'>Paid</span>
+                                        : <Link to={`/dashboard/payment/${parcel._id}`} className="btn btn-sm btn-primary text-black">Pay</Link>
                                 }</td>
+                                <Link to={`/parcel-track/${parcel.trackingId}`} className="btn btn-md btn-primary text-black mt-2">
+                                    {parcel.trackingId}
+                                </Link>
                                 <td>{parcel.delivaryStatus}</td>
                                 <td>
                                     <button className="btn btn-square hover:bg-primary mx-2"><FiEdit ></FiEdit></button>

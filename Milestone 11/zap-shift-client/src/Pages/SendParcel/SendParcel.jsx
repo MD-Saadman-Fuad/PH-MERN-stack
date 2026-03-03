@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 // import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
 

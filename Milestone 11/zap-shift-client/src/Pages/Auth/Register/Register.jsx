@@ -27,10 +27,22 @@ const Register = () => {
                 const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_hosting_key}`;
                 axios.post(url, formData).then(res => {
                     console.log('imgbb response', res.data.data.url);
-                    const userProfile ={
+                    const userInfo = {
+                        email: data.email,
+                        name: data.name,
+                        photoURL: res.data.data.url
+                    }
+                    const userProfile = {
                         displayName: data.name,
                         photoURL: res.data.data.url
                     }
+                    axios.post(`${import.meta.env.VITE_backend_url}/users`, userInfo)
+                        .then(() => {
+                            console.log('User info saved to database');
+                        })
+                        .catch(err => {
+                            console.log('Error saving user info to database', err);
+                        });
                     updateUserProfile(userProfile)
                         .then(() => {
                             console.log('User profile updated');
@@ -95,8 +107,8 @@ const Register = () => {
                     <div><a class="link link-hover">Forgot password?</a></div>
                     <button class="btn btn-neutral bg-primary text-black mt-4">Register</button>
                 </fieldset>
-                <p>Already have an Account? <Link 
-                state={location.state} className="text-primary" to="/login">Login</Link></p>
+                <p>Already have an Account? <Link
+                    state={location.state} className="text-primary" to="/login">Login</Link></p>
 
             </form>
             <SocialLogin />

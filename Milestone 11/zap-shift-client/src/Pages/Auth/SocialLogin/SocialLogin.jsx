@@ -1,6 +1,7 @@
 import React from 'react';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router';
+import axios from 'axios';
 
 const SocialLogin = () => {
     const { signInWithGoogle } = useAuth();
@@ -13,6 +14,20 @@ const SocialLogin = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(location?.state || '/');
+
+                const userInfo = {
+                    email: result.user.email,
+                    name: result.user.displayName,
+                    photoURL: result.user.photoURL
+                }
+                axios.post(`${import.meta.env.VITE_backend_url}/users`, userInfo)
+                    .then(() => {
+                        console.log('User info saved to database');
+                    })
+                    .catch(err => {
+                        console.log('Error saving user info to database', err);
+                    });
+
             })
             .catch(error => {
                 console.log(error.message);
