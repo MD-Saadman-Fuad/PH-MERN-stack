@@ -87,6 +87,15 @@ async function run() {
             }
             next();
         };
+        const verifyRider = async (req, res, next) => {
+            const email = req.decodedEmail;
+            const query = { email };
+            const user = await usersCollection.findOne(query);
+            if (!user || user.role !== 'rider') {
+                return res.status(403).send({ message: 'Forbidden access' });
+            }
+            next();
+        };
 
         const logTracking = async (trackingId, status) => {
             const query = { trackingId, status };
@@ -222,6 +231,55 @@ async function run() {
             res.send(riders);
         });
 
+        app.get('/riders/delivery-per-day', async (req, res) => {
+            const email = req.query.email;
+            const pipeline = [
+                {
+                    $match: {
+                        riderEmail: email,
+                        deliveryStatus: "parcel_delivered"
+                    }
+                },
+                {
+                    $lookup: {
+                        from: "trackings",
+                        localField: "trackingId",
+                        foreignField: "trackingId",
+                        as: "parcel_trackings"
+                    }
+                },
+                {
+                    $unwind: "$parcel_trackings"
+                },
+                {
+                    $match: {
+                        "parcel_trackings.status": "parcel_delivered"
+                    }
+                },
+                {
+                    // convert timestamp to YYYY-MM-DD string
+                    $addFields: {
+                        deliveryDay: {
+                            $dateToString: {
+                                format: "%Y-%m-%d",
+                                date: "$parcel_trackings.createdAt"
+                            }
+                        }
+                    }
+                },
+                {
+                    // group by date
+                    $group: {
+                        _id: "$deliveryDay",
+                        deliveredCount: { $sum: 1 }
+                    }
+                }
+            ];
+
+            const result = await parcelsCollection.aggregate(pipeline).toArray();
+            res.send(result);
+        });
+
         // API to add a parcel
         app.get('/parcels', async (req, res) => {
             const query = {};
@@ -264,6 +322,26 @@ async function run() {
             const query = { _id: new ObjectId(id) };
             const result = await parcelsCollection.findOne(query);
             res.send(result)
+        });
+
+        app.get('/parcels/delivery-status/stats', async (req, res) => {
+            const pipeline = [
+                {
+                    $group: {
+                        _id: "$deliveryStatus",
+                        count: { $sum: 1 }
+                    }
+                },
+                {
+                    $project: {
+                        status: "$_id",
+                        count: 1,
+                        // _id: 0
+                    }
+                }
+            ]
+            const result = await parcelsCollection.aggregate(pipeline).toArray();
+            res.send(result);
         });
 
         app.post('/parcels', async (req, res) => {
@@ -419,7 +497,7 @@ async function run() {
                 });
             }
 
-            res.send({ success: false });
+            return res.send({ success: false });
         })
 
         app.get('/payments', verifyFBToken, async (req, res) => {

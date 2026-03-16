@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../../Components/Logo/Logo';
 import { NavLink } from 'react-router';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -14,13 +14,17 @@ const Navbar = () => {
 
     const links = <>
         <li><NavLink to="">Services</NavLink></li>
-        <li><NavLink to="/aboutus">About Us</NavLink></li>
         <li><NavLink to="/send-parcel">Send Parcel</NavLink></li>
-        <li><NavLink to="/coverage">Coverage</NavLink></li>
+        <li><NavLink to="/coverage">Coverage Area</NavLink></li>
+        
 
         {
-            user && <><li><NavLink to="/dashboard/my-parcels">My Parcels</NavLink></li></>
+            user && <>
+            <li><NavLink to="/dashboard/my-parcels">My Parcels</NavLink></li>
+            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+            </>
         }
+        <li><NavLink to="/aboutus">About Us</NavLink></li>
     </>
     return (
         <div className="navbar rounded-3xl bg-base-100 shadow-sm mb-6">
